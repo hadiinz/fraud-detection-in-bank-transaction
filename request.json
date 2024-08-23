@@ -1,50 +1,27 @@
 [
     {
-        "step": 83,
-        "customer": "C667215072",
+        "step": 88,
+        "customer": "C583110837",
         "age": 3,
-        "gender": "F",
+        "gender": "M",
         "zipcodeOri": "28007",
         "merchant": "M480139044",
         "zipMerchant": "28007",
         "category": "es_health",
-        "amount": 108.22,
+        "amount": 4449.26,
         "fraud": 1
     },
+   
     {
-        "step": 127,
-        "customer": "C811312110",
-        "age": 3,
-        "gender": "F",
-        "zipcodeOri": "28007",
-        "merchant": "M980657600",
-        "zipMerchant": "28007",
-        "category": "es_sportsandtoys",
-        "amount": 157.38,
-        "fraud": 1
-    },
-    {
-        "step": 114,
-        "customer": "C1580025618",
-        "age": 2,
-        "gender": "F",
-        "zipcodeOri": "28007",
-        "merchant": "M1823072687",
-        "zipMerchant": "28007",
-        "category": "es_transportation",
-        "amount": 19.42,
-        "fraud": 0
-    },
-    {
-        "step": 60,
-        "customer": "C46027917",
-        "age": 5,
-        "gender": "F",
+        "step": 0,
+        "customer": "C1093826151",
+        "age": 4,
+        "gender": "M",
         "zipcodeOri": "28007",
         "merchant": "M348934600",
         "zipMerchant": "28007",
         "category": "es_transportation",
-        "amount": 37.43,
+        "amount": 4.55,
         "fraud": 0
     }
 ]

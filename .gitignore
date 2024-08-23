@@ -1,2 +1,6 @@
 DM-Project1.ipynb
 data-mining-p2-student.ipynb
+models/ensemble_model.pkl
+models/knn_model.pkl
+models/rf_model.pkl
+models/xgb_model.pkl
