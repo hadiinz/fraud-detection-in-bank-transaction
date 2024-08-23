@@ -13,7 +13,7 @@ XGBoost_CLF = joblib.load('models/xgb_model.pkl')
 ensemble_model = joblib.load('models/ensemble_model.pkl')
 
 # Load mappings from JSON file
-with open('mappings.json', 'r') as f:
+with open('json/mappings.json', 'r') as f:
     mappings = json.load(f)
 
 category_mapping = mappings['category_mapping']
@@ -28,7 +28,7 @@ def preprocess(data):
     reduced_data = df.drop(['zipMerchant','zipcodeOri','customer'],axis=1)
 
     # Load mappings from JSON file
-    with open('mappings.json', 'r') as f:
+    with open('json/mappings.json', 'r') as f:
         mappings = json.load(f)
 
     category_mapping = mappings['category_mapping']
