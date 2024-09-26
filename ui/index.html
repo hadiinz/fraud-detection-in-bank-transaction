@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Fraud Detection</title>
+</head>
+<body>
+    <div class="demo-page">
+        <h1>Fraud Detection Application</h1>
+        <form id="transaction-form">
+            <label for="step">Step:</label>
+            <input type="number" id="step" name="step" required>
+
+            <label for="customer">Customer ID:</label>
+            <input type="text" id="customer" name="customer" required>
+
+            <label for="age">Age:</label>
+            <input type="number" id="age" name="age" required>
+
+            <label for="gender">Gender:</label>
+            <select id="gender" name="gender" required>
+                <option value="M">Male</option>
+                <option value="F">Female</option>
+            </select>
+
+            <label for="zipcodeOri">Zip Code Origin:</label>
+            <input type="text" id="zipcodeOri" name="zipcodeOri" required>
+
+            <label for="merchant">Merchant ID:</label>
+            <input type="text" id="merchant" name="merchant" required>
+
+            <label for="zipMerchant">Merchant Zip Code:</label>
+            <input type="text" id="zipMerchant" name="zipMerchant" required>
+
+            <label for="category">Category:</label>
+            <select id="category" name="category" required>
+                <option value="es_barsandrestaurants">Bars and Restaurants</option>
+                <option value="es_contents">Contents</option>
+                <option value="es_fashion">Fashion</option>
+                <option value="es_food">Food</option>
+                <option value="es_health">Health</option>
+                <option value="es_home">Home</option>
+                <option value="es_hotelservices">Hotel Services</option>
+                <option value="es_hyper">Hyper</option>
+                <option value="es_leisure">Leisure</option>
+                <option value="es_otherservices">Other Services</option>
+                <option value="es_sportsandtoys">Sports and Toys</option>
+                <option value="es_tech">Tech</option>
+                <option value="es_transportation">Transportation</option>
+                <option value="es_travel">Travel</option>
+                <option value="es_wellnessandbeauty">Wellness and Beauty</option>
+            </select>
+
+            <label for="amount">Amount:</label>
+            <input type="number" step="0.01" id="amount" name="amount" required>
+
+            <button type="submit">Submit Transaction</button>
+        </form>
+
+        <div>
+            <h2>Predictions:</h2>
+            <p>KNN Prediction: <span id="knn-prediction"></span></p>
+            <p>Random Forest Prediction: <span id="rf-prediction"></span></p>
+            <p>XGBoost Prediction: <span id="xgboost-prediction"></span></p>
+            <p>Ensemble Model Prediction: <span id="ensemble-prediction"></span></p>
+        </div>
+
+        <div>
+            <h2>Sample Requests</h2>
+            <button class="sample-btn" data-type="fraud">Fraud Sample</button>
+            <button class="sample-btn" data-type="non-fraud">Non-Fraud Sample</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
