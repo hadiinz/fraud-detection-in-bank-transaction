@@ -62,7 +62,14 @@ def balance_data(X, y):
     print("Balanced dataset:\n", y_res['fraud'].value_counts())
     return X_res, y_res
 
+
 def train_models(X_train, y_train):
+
+     # Save the list of feature names used for training
+    feature_names = X_train.columns.tolist()
+    with open('models/feature_names.json', 'w') as f:
+        json.dump(feature_names, f)
+        
     # Train KNN
     print("Training KNN model...\n")
     knn = KNeighborsClassifier(n_neighbors=5, p=1)

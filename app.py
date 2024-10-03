@@ -26,6 +26,10 @@ def preprocess(data):
     df = pd.DataFrame(data)
     reduced_data = df.drop(['zipMerchant', 'zipcodeOri', 'customer'], axis=1)
 
+    # Load feature names saved during training
+    with open('models/feature_names.json', 'r') as f:
+        feature_names = json.load(f)
+
     # Clean and convert data
     reduced_data['category'] = reduced_data['category'].str.replace("'", "", regex=False)
     reduced_data['merchant'] = reduced_data['merchant'].str.replace("'", "", regex=False)
@@ -37,13 +41,23 @@ def preprocess(data):
     reduced_data['merchant'] = reduced_data['merchant'].map(merchant_mapping)
     reduced_data['gender'] = reduced_data['gender'].map(gender_mapping)
 
-    return reduced_data
+    # Reorder the features to match the training order
+    features_only = reduced_data.drop(['fraud'], axis=1) 
+    features_only = features_only.reindex(columns=feature_names, fill_value=0)
+
+    features_only['fraud'] = reduced_data['fraud']
+
+    return features_only
+
 
 def make_predictions(model, data):
     processed_data = preprocess(data)
-    X = processed_data.drop(['fraud'], axis=1).astype('float64')
+    print(f"Processed data: {processed_data}") 
+
+    X = processed_data.drop(['fraud'], axis=1).astype('float64')  
+    actuals = processed_data['fraud'].tolist() 
     predictions = model.predict(X)
-    actuals = processed_data['fraud'].tolist()
+
     return predictions, actuals
 
 @app.route('/predict/knn', methods=['POST'])
