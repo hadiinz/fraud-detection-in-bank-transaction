@@ -22,6 +22,8 @@ def test_knn_prediction(client):
     result = response.get_json()
     assert 'prediction' in result[0]
     assert 'actual' in result[0]
+    assert result[0]['prediction'] == result[0]['actual']
+
 
 def test_rf_prediction(client):
     mock_data = {
@@ -44,6 +46,7 @@ def test_rf_prediction(client):
     result = response.get_json()
     assert 'prediction' in result[0]
     assert 'actual' in result[0]
+    assert result[0]['prediction'] == result[0]['actual']
 
 def test_xgb_prediction(client):
     mock_data = {
@@ -66,6 +69,7 @@ def test_xgb_prediction(client):
     result = response.get_json()
     assert 'prediction' in result[0]
     assert 'actual' in result[0]
+    assert result[0]['prediction'] == result[0]['actual']
 
 def test_ensemble_prediction(client):
     mock_data = {
@@ -88,3 +92,4 @@ def test_ensemble_prediction(client):
     result = response.get_json()
     assert 'prediction' in result[0]
     assert 'actual' in result[0]
+    assert result[0]['prediction'] == result[0]['actual']

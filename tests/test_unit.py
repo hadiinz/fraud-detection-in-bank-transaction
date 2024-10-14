@@ -132,3 +132,39 @@ def test_xgb_model():
     
     assert prediction[0] == 1
     assert prediction[1] == 0
+
+
+def test_ensemble_model():
+    data = [
+    {
+        "step": 88,
+        "customer": "C583110837",
+        "age": 3,
+        "gender": "M",
+        "zipcodeOri": "28007",
+        "merchant": "M480139044",
+        "zipMerchant": "28007",
+        "category": "es_health",
+        "amount": 4449.26,
+        "fraud": 1
+    },
+   
+    {
+        "step": 0,
+        "customer": "C1093826151",
+        "age": 4,
+        "gender": "M",
+        "zipcodeOri": "28007",
+        "merchant": "M348934600",
+        "zipMerchant": "28007",
+        "category": "es_transportation",
+        "amount": 4.55,
+        "fraud": 0
+    }
+]   
+    processed_data = preprocess(data)
+    X = processed_data.drop(['fraud'], axis=1)
+    prediction = ensemble_model.predict(X)
+    
+    assert prediction[0] == 1
+    assert prediction[1] == 0
